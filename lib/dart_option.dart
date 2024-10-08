@@ -55,3 +55,10 @@ Option<T> filter<T>(Option<T> option, bool Function(T) predicate) {
     _ => None(),
   };
 }
+
+Option<T> or<T>(Option<T> optionA, Option<T> optionB) {
+  return switch (optionA) {
+    Some(value: T value) => Some(value),
+    None() => optionB,
+  };
+}
