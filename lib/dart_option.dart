@@ -27,3 +27,10 @@ U mapOrElse<T, U>(Option<T> option, U Function() g, U Function(T) f) {
     None() => g(),
   };
 }
+
+Iterable<T> iter<T>(Option<T> option) {
+  return switch (option) {
+    Some(value: T value) => Iterable.generate(1, (_) => value),
+    None() => Iterable.empty(),
+  };
+}
