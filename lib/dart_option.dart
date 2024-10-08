@@ -41,3 +41,10 @@ Option<U> and<T, U>(Option<T> optionA, Option<U> optionB) {
     None() => None(),
   };
 }
+
+Option<U> andThen<T, U>(Option<T> option, Option<U> Function(T) f) {
+  return switch (option) {
+    Some(value: T value) => f(value),
+    None() => None(),
+  };
+}
