@@ -13,3 +13,10 @@ Option<U> map<T, U>(Option<T> option, U Function(T) f) {
     None() => None(),
   };
 }
+
+U mapOr<T, U>(Option<T> option, U fallback, U Function(T) f) {
+  return switch (option) {
+    Some(value: T value) => f(value),
+    None() => fallback,
+  };
+}
