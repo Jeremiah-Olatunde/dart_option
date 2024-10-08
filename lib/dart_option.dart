@@ -48,3 +48,10 @@ Option<U> andThen<T, U>(Option<T> option, Option<U> Function(T) f) {
     None() => None(),
   };
 }
+
+Option<T> filter<T>(Option<T> option, bool Function(T) predicate) {
+  return switch (option) {
+    Some(value: T value) when predicate(value) => Some(value),
+    _ => None(),
+  };
+}
