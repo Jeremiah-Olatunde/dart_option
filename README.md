@@ -1,2 +1,3 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+# Dart Option
+
+A dart implementation of the rust Option enum [see](https://doc.rust-lang.org/std/option/enum.Option.html).
