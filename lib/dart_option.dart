@@ -34,3 +34,10 @@ Iterable<T> iter<T>(Option<T> option) {
     None() => Iterable.empty(),
   };
 }
+
+Option<U> and<T, U>(Option<T> optionA, Option<U> optionB) {
+  return switch (optionA) {
+    Some(value: T _) => optionB,
+    None() => None(),
+  };
+}
