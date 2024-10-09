@@ -135,3 +135,8 @@ Option<T> xor<T>(Option<T> optionA, Option<T> optionB) {
 Option<T> insert<T>(Option<T> options, T value) {
   return Some(value);
 }
+
+Option<T> getOrInsert<T>(Option<T> option, T value) {
+  if (isSome(option)) return option;
+  return Some(value);
+}
