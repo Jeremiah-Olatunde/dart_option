@@ -145,3 +145,7 @@ Option<T> getOrInsertWith<T>(Option<T> option, T Function() f) {
   if (isSome(option)) return option;
   return Some(f());
 }
+
+Option<T> take<T>(Option<T> option) {
+  return None();
+}
