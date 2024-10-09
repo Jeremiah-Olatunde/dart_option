@@ -125,3 +125,9 @@ Option<T> orElse<T>(Option<T> option, Option<T> Function() f) {
     None() => f(),
   };
 }
+
+Option<T> xor<T>(Option<T> optionA, Option<T> optionB) {
+  if (isSome(optionA) && isNone(optionB)) return optionA;
+  if (isSome(optionB) && isNone(optionA)) return optionB;
+  return None();
+}
