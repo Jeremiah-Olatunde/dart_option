@@ -46,6 +46,13 @@ T unwrap<T>(Option<T> option) {
   };
 }
 
+T unwrapOr<T>(Option<T> option, T fallback) {
+  return switch (option) {
+    Some(value: T value) => value,
+    None() => fallback,
+  };
+}
+
 Option<U> map<T, U>(Option<T> option, U Function(T) f) {
   return switch (option) {
     Some(value: T value) => Some(f(value)),
