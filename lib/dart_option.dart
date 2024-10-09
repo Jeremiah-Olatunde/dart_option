@@ -53,6 +53,16 @@ T unwrapOr<T>(Option<T> option, T fallback) {
   };
 }
 
+Option<T> inspect<T>(Option<T> option, Function(T) f) {
+  switch (option) {
+    case Some(value: T value):
+      f(value);
+    default:
+  }
+
+  return option;
+}
+
 Option<U> map<T, U>(Option<T> option, U Function(T) f) {
   return switch (option) {
     Some(value: T value) => Some(f(value)),
