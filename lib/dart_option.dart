@@ -177,3 +177,10 @@ Option<R> zipWith<T, U, R>(
     _ => None(),
   };
 }
+
+Option<T> flatten<T>(Option<Option<T>> option) {
+  return switch (option) {
+    Some(value: Some(value: T value)) => Some(value),
+    _ => None(),
+  };
+}
