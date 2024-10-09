@@ -63,7 +63,7 @@ Option<T> or<T>(Option<T> optionA, Option<T> optionB) {
   };
 }
 
-Option<T> orelse<T>(Option<T> option, Option<T> Function() f) {
+Option<T> orElse<T>(Option<T> option, Option<T> Function() f) {
   return switch (option) {
     Some(value: T value) => Some(value),
     None() => f(),
