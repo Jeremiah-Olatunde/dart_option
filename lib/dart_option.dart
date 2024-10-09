@@ -149,3 +149,10 @@ Option<T> getOrInsertWith<T>(Option<T> option, T Function() f) {
 Option<T> take<T>(Option<T> option) {
   return None();
 }
+
+Option<T> takeIf<T>(Option<T> option, bool Function(T) predicate) {
+  return switch (option) {
+    Some(value: T value) when predicate(value) => None(),
+    _ => option,
+  };
+}
