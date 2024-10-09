@@ -32,6 +32,13 @@ bool isNoneOr<T>(Option<T> option, bool Function(T) predicate) {
   };
 }
 
+T expect<T>(Option<T> option, String message) {
+  return switch (option) {
+    Some(value: T value) => value,
+    None() => throw message,
+  };
+}
+
 Option<U> map<T, U>(Option<T> option, U Function(T) f) {
   return switch (option) {
     Some(value: T value) => Some(f(value)),
