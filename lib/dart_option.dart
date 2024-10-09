@@ -156,3 +156,13 @@ Option<T> takeIf<T>(Option<T> option, bool Function(T) predicate) {
     _ => option,
   };
 }
+
+Option<(T, U)> zip<T, U>(Option<T> optionA, Option<U> optionB) {
+  return switch (optionA) {
+    Some(value: T a) => switch (optionB) {
+        Some(value: U b) => Some((a, b)),
+        _ => None()
+      },
+    _ => None(),
+  };
+}
