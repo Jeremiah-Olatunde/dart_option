@@ -166,3 +166,14 @@ Option<(T, U)> zip<T, U>(Option<T> optionA, Option<U> optionB) {
     _ => None(),
   };
 }
+
+Option<R> zipWith<T, U, R>(
+    Option<T> optionA, Option<U> optionB, R Function(T, U) f) {
+  return switch (optionA) {
+    Some(value: T a) => switch (optionB) {
+        Some(value: U b) => Some(f(a, b)),
+        _ => None()
+      },
+    _ => None(),
+  };
+}
