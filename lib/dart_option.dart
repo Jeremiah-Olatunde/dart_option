@@ -25,6 +25,13 @@ bool isNone<T>(Option<T> option) {
   };
 }
 
+bool isNoneOr<T>(Option<T> option, bool Function(T) predicate) {
+  return switch (option) {
+    Some(value: T value) => predicate(value),
+    None() => true,
+  };
+}
+
 Option<U> map<T, U>(Option<T> option, U Function(T) f) {
   return switch (option) {
     Some(value: T value) => Some(f(value)),
