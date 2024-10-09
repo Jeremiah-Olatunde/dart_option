@@ -131,3 +131,7 @@ Option<T> xor<T>(Option<T> optionA, Option<T> optionB) {
   if (isSome(optionB) && isNone(optionA)) return optionB;
   return None();
 }
+
+Option<T> insert<T>(Option<T> options, T value) {
+  return Some(value);
+}
