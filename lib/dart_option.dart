@@ -18,6 +18,13 @@ bool isSomeAnd<T>(Option<T> option, bool Function(T) predicate) {
   };
 }
 
+bool isNone<T>(Option<T> option) {
+  return switch (option) {
+    Some(value: _) => false,
+    None() => true,
+  };
+}
+
 Option<U> map<T, U>(Option<T> option, U Function(T) f) {
   return switch (option) {
     Some(value: T value) => Some(f(value)),
